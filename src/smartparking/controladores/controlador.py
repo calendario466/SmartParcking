@@ -1,20 +1,28 @@
 from ..persistencia.repositorio_json import RepositorioJSON
 from ..modelo.cliente import Cliente, TipoCliente
+from ..modelo.formato import buscar_por_rut, limpiar_rut
 from ..modelo.producto import Vehiculo, TipoVehiculo
 from ..modelo.repartidor import EspacioAuto, EspacioMoto, EspacioElectrico, Estado
 from ..modelo.pedido import RegistroEstacionamiento, EstadoEstacionamiento
 
 class ControladorPrincipal:
-    def __init__(self):
-        self.repo = RepositorioJSON()
+    def __init__(self, repo=None):
+        self.repo = repo or RepositorioJSON()
         self.clientes = self.repo.cargar_clientes()
         self.vehiculos = self.repo.cargar_vehiculos(self.clientes)
         self.espacios = self.repo.cargar_espacios()
         self.registros = self.repo.cargar_registros(self.clientes, self.vehiculos, self.espacios)
         self.contador_registros = (max((r.id_registro for r in self.registros), default=0) + 1)
 
+    def buscar_cliente(self, rut: str):
+        return buscar_por_rut(self.clientes, rut)
+
     def registrar_cliente(self, nombre, rut, email, telefono, tipo_str):
-        if rut in self.clientes: return False, "El cliente ya existe."
+        rut = (rut or "").strip()
+        if not limpiar_rut(rut):
+            return False, "El campo 'RUT' no puede estar vacío."
+        if self.buscar_cliente(rut):
+            return False, "El cliente ya existe."
         tipo = TipoCliente.PREMIUM if tipo_str == "PREMIUM" else TipoCliente.NORMAL
         c = Cliente(nombre, rut, email, telefono, tipo)
         self.clientes[rut] = c
@@ -24,7 +32,7 @@ class ControladorPrincipal:
     def registrar_vehiculo(self, rut, patente, tipo_str):
         patente = patente.upper()
         if patente in self.vehiculos: return False, "El vehículo ya existe."
-        c = self.clientes.get(rut)
+        c = self.buscar_cliente(rut)
         if not c: return False, "Cliente no encontrado."
         tipo = TipoVehiculo.MOTOCICLETA if tipo_str == "MOTOCICLETA" else (TipoVehiculo.ELECTRICO if tipo_str == "ELECTRICO" else TipoVehiculo.AUTOMOVIL)
         v = Vehiculo(patente, tipo, c)

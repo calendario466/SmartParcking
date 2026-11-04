@@ -3,7 +3,7 @@ from .cliente import Cliente, TipoCliente
 from .producto import Vehiculo, TipoVehiculo
 from .repartidor import Espacio, EspacioAuto, EspacioMoto, EspacioElectrico, Estado
 from .pedido import RegistroEstacionamiento, EstadoEstacionamiento
-from .formato import limpiar_rut
+from .formato import buscar_por_rut
 
 class SistemaEstacionamiento:
     def __init__(self):
@@ -14,7 +14,7 @@ class SistemaEstacionamiento:
         self.contador_registros = 1
 
     def buscar_cliente(self, rut: str):
-        return self.clientes.get(limpiar_rut(rut))
+        return buscar_por_rut(self.clientes, rut)
 
     def buscar_vehiculo(self, patente: str):
         return self.vehiculos.get(patente.upper() if patente else "")

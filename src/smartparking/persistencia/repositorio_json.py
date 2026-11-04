@@ -1,13 +1,16 @@
 import json
 import os
 from ..modelo.cliente import Cliente, TipoCliente
+from ..modelo.formato import buscar_por_rut
 from ..modelo.producto import Vehiculo, TipoVehiculo
 from ..modelo.repartidor import EspacioAuto, EspacioMoto, EspacioElectrico, Estado
 from ..modelo.pedido import RegistroEstacionamiento, EstadoEstacionamiento
 
 class RepositorioJSON:
-    def __init__(self):
-        self.ruta_data = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
+    def __init__(self, ruta_data=None):
+        if ruta_data is None:
+            ruta_data = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
+        self.ruta_data = ruta_data
         self.archivo_clientes = os.path.join(self.ruta_data, 'clientes.json')
         self.archivo_vehiculos = os.path.join(self.ruta_data, 'vehiculos.json')
         self.archivo_espacios = os.path.join(self.ruta_data, 'espacios.json')
@@ -32,7 +35,7 @@ class RepositorioJSON:
         datos = self._cargar(self.archivo_vehiculos)
         vehiculos = {}
         for d in datos:
-            c = clientes.get(d['rut_cliente'])
+            c = buscar_por_rut(clientes, d.get('rut_cliente'))
             if c:
                 v = Vehiculo(d['patente'], TipoVehiculo(d['tipo']), c)
                 vehiculos[v.patente] = v
@@ -59,7 +62,7 @@ class RepositorioJSON:
         datos = self._cargar(self.archivo_registros)
         registros = []
         for d in datos:
-            c = clientes.get(d['rut_cliente'])
+            c = buscar_por_rut(clientes, d.get('rut_cliente'))
             v = vehiculos.get(d['patente_vehiculo'])
             e = espacios.get(d['numero_espacio'])
             if c and v and e:
