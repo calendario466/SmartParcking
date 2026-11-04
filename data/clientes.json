@@ -19,5 +19,12 @@
         "email": "correo@ej.com",
         "telefono": "123",
         "tipo": "PREMIUM"
+    },
+    {
+        "nombre": "Javera  Rodriguez",
+        "rut": "17732611-9",
+        "email": "correo@ej.com",
+        "telefono": "123",
+        "tipo": "PREMIUM"
     }
 ]
