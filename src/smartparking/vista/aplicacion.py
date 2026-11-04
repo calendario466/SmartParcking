@@ -14,7 +14,7 @@ class AplicacionEscritorio:
         self.controlador = ControladorPrincipal()
 
         self.notebook = ttk.Notebook(root)
-        self.notebook.pack(expand=True, fill='both', padx=10, pady=10)
+        self.notebook.pack(expand=True, fill='both', padx=10, pady=12)
 
         self.tab_clientes = VistaClientes(self.notebook, self.controlador)
         self.tab_vehiculos = VistaVehiculos(self.notebook, self.controlador)
