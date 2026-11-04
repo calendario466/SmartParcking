@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Juan P\u00e9rez",
+        "rut": "11111111-1",
+        "email": "juan@gmail.com",
+        "telefono": "+56911112222",
+        "tipo": "NORMAL"
+    },
+    {
+        "nombre": "Mar\u00eda Gonz\u00e1lez",
+        "rut": "22222222-2",
+        "email": "maria@gmail.com",
+        "telefono": "+56933334444",
+        "tipo": "PREMIUM"
+    },
+    {
+        "nombre": "Luis Rebolledo",
+        "rut": "21212236-k",
+        "email": "correo@ej.com",
+        "telefono": "123",
+        "tipo": "PREMIUM"
+    }
+]

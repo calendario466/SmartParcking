@@ -1,0 +1,33 @@
+[
+    {
+        "tipo": "Auto",
+        "numero": "A-101",
+        "ubicacion": "Piso 1 - Zona Norte",
+        "estado": "DISPONIBLE"
+    },
+    {
+        "tipo": "Auto",
+        "numero": "A-102",
+        "ubicacion": "Piso 1 - Zona Norte",
+        "estado": "DISPONIBLE"
+    },
+    {
+        "tipo": "Moto",
+        "numero": "M-201",
+        "ubicacion": "Piso 1 - Zona Sur",
+        "estado": "MANTENIMIENTO"
+    },
+    {
+        "tipo": "Moto",
+        "numero": "M-202",
+        "ubicacion": "Piso 1 - Zona Sur",
+        "estado": "DISPONIBLE"
+    },
+    {
+        "tipo": "Electrico",
+        "numero": "E-301",
+        "ubicacion": "Piso 2 - Zona Carga",
+        "potencia": 50.0,
+        "estado": "DISPONIBLE"
+    }
+]

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smartparking"
+version = "1.0.0"
+description = "Sistema de Gestión de Estacionamientos SmartParking"
+requires-python = ">=3.12"
+
+[project.scripts]
+smartparking = "smartparking.__main__:main"
+smartparking-demo = "smartparking.demo:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

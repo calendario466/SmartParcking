@@ -1,0 +1,17 @@
+[
+    {
+        "patente": "AA1234",
+        "tipo": "AUTOMOVIL",
+        "rut_cliente": "11111111-1"
+    },
+    {
+        "patente": "BB5678",
+        "tipo": "ELECTRICO",
+        "rut_cliente": "22222222-2"
+    },
+    {
+        "patente": "XZ5781",
+        "tipo": "MOTOCICLETA",
+        "rut_cliente": "21212236-k"
+    }
+]

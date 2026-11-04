@@ -1,0 +1,12 @@
+[
+    {
+        "id_registro": 1,
+        "rut_cliente": "21212236-k",
+        "patente_vehiculo": "XZ5781",
+        "numero_espacio": "M-201",
+        "fecha_entrada": "2026-11-02 10:00",
+        "fecha_salida": "2026-11-02 18:00",
+        "estado": "FINALIZADO",
+        "total": 4500.0
+    }
+]
