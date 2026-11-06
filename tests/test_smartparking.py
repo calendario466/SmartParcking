@@ -1,6 +1,6 @@
 import json
 import os
-import shutil
+import 
 import tempfile
 import unittest
 from src.smartparking.controladores.controlador import ControladorPrincipal
