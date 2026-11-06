@@ -50,7 +50,7 @@ class RepositorioJSON:
         for d in datos:
             if d['tipo'] == 'Auto': e = EspacioAuto(d['numero'], d['ubicacion'])
             elif d['tipo'] == 'Moto': e = EspacioMoto(d['numero'], d['ubicacion'])
-            else: e = EspacioElectrico(d['numero'], d['ubicacion'], d.get('potencia', 50.))
+            else: e = EspacioElectrico(d['numero'], d['ubicacion'], d.get('potencia', 50.0))
             if 'estado' in d: e.estado = Estado(d['estado'])
             espacios[e.numero] = e
         return espacios
