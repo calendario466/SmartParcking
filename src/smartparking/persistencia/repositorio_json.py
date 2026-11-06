@@ -1,6 +1,6 @@
 import json
 import os
-from ..modelo.cliente import Cliente, TipoCliente1
+from ..modelo.cliente import Cliente, TipoCliente
 from ..modelo.formato import buscar_por_rut
 from ..modelo.producto import Vehiculo, TipoVehiculo
 from ..modelo.repartidor import EspacioAuto, EspacioMoto, EspacioElectrico, Estado
