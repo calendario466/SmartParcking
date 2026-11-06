@@ -1,2 +1,2 @@
 # Diagrama UML SmartParking
-Especificación de clases y herencia
+Especificación de clases y herencia.
