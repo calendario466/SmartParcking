@@ -6,7 +6,7 @@ class MetodoPago(ABC):
 
 class PagoTarjetaCredito(MetodoPago):
     def __init__(self, numero_tarjeta: str): self.numero_tarjeta = numero_tarjeta
-    def procesar_pago(self, monto: float) -> bool: return 
+    def procesar_pago(self, monto: float) -> bool: return True
 
 class PagoTarjetaDebito(MetodoPago):
     def __init__(self, numero_tarjeta: str): self.numero_tarjeta = numero_tarjeta
